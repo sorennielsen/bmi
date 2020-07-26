@@ -17,6 +17,7 @@ package main
 
 import "github.com/sorennielsen/bmi/cmd"
 
+// main delegates execution to Cobra
 func main() {
 	cmd.Execute()
 }
