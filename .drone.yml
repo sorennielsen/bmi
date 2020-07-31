@@ -1,0 +1,56 @@
+kind: pipeline
+type: docker
+name: Linux-ARM64
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+- name: docker
+  image: plugins/docker
+  settings:
+    repo: sorennielsen/bmi
+    build_args:
+      - VERSION=${DRONE_SEMVER}
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+    auto_tag: true
+    auto_tag_suffix: linux-arm64
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+
+trigger:
+  ref:
+  - refs/heads/main
+  - refs/tags/*
+
+---
+kind: pipeline
+type: docker
+name: Linux-AMD64
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: docker
+  image: plugins/docker
+  settings:
+    repo: sorennielsen/bmi
+    build_args:
+      - VERSION=${DRONE_SEMVER}
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+    auto_tag: true
+    auto_tag_suffix: linux-amd64
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+
+trigger:
+  ref:
+  - refs/heads/main
+  - refs/tags/*
