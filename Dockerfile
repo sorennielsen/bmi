@@ -2,10 +2,10 @@
 # Build Docker image for BMI
 #
 # To build image:
-# 	docker build -t sorennielsen/bmi:latest --build-arg VERSION=snapshot --build-arg GIT_COMMIT=$(git rev-parse -q --verify HEAD) .
+# 	docker build -t snexerp/bmi:latest --build-arg VERSION=snapshot --build-arg GIT_COMMIT=$(git rev-parse -q --verify HEAD) .
 #
 # To run the built image in container
-# 	docker run --rm -d --name bmi_server -p 8080:8080 sorennielsen/bmi:latest serve
+# 	docker run --rm -d --name bmi_server -p 8080:8080 snexerp/bmi:latest serve
 #
 # Where
 #	run     - Ask the Docker engine to run image
